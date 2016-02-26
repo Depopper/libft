@@ -12,6 +12,7 @@ ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c \
  ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c ft_tolower.c \
 ft_toupper.c ft_getdecade.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 ft_lstadd.c ft_lstiter.c ft_lstpush.c ft_lstmap.c  ft_strlen_delim.c\
+ft_swap.c
 
 OBJ = $(subst .c,.o,$(SRC))
 

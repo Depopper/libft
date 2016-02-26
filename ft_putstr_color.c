@@ -30,7 +30,7 @@ static void	color_write(char *color, char *str)
 
 void		ft_putstr_color(char *str, int color)
 {
-	char colors = {KNRM, KRED, KGRN, KYEL, KBLU, KMAG, KCYN, KWHT, RESET}
+	char *colors[] = {KNRM, KBLU, KGRN, KRED, KYEL, KMAG, KCYN, KWHT, RESET};
 
-	color_write(colors[color], str);	
+	color_write(colors[color], str);
 }

@@ -94,6 +94,7 @@ int				ft_atoi(const char *str);
 int				ft_getdecade(int nb);
 char			*ft_itoa(int n);
 unsigned long	ft_pow(int nb, int power);
+void 			swap(void **one, void **two);
 /*
 **** T_LIST
 */
