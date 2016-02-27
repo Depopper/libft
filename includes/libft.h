@@ -6,7 +6,7 @@
 /*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 00:59:11 by aschafer          #+#    #+#             */
-/*   Updated: 2016/01/18 16:14:13 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/02/27 10:40:03 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int				ft_atoi(const char *str);
 int				ft_getdecade(int nb);
 char			*ft_itoa(int n);
 unsigned long	ft_pow(int nb, int power);
-void 			swap(void **one, void **two);
+void			swap(void **one, void **two);
 /*
 **** T_LIST
 */

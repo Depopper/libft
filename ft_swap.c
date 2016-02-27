@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aschafer <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/02/27 10:37:18 by aschafer          #+#    #+#             */
+/*   Updated: 2016/02/27 10:38:01 by aschafer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void swap(void **one, void **two)
+void	swap(void **one, void **two)
 {
-  void *temp;
+	void *temp;
 
-  temp = *one;
-  *one = *two;
-  *two = temp;
+	temp = *one;
+	*one = *two;
+	*two = temp;
 }

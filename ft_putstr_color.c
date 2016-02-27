@@ -6,7 +6,7 @@
 /*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:13:20 by aschafer          #+#    #+#             */
-/*   Updated: 2016/01/18 16:13:29 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/02/27 10:43:20 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static void	color_write(char *color, char *str)
 
 void		ft_putstr_color(char *str, int color)
 {
-	char *colors[] = {KNRM, KBLU, KGRN, KRED, KYEL, KMAG, KCYN, KWHT, RESET};
+	const char *colors[] =
+	{KNRM, KBLU, KGRN, KRED, KYEL, KMAG, KCYN, KWHT, RESET};
 
 	color_write(colors[color], str);
 }
