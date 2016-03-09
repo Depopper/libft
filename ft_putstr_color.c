@@ -6,7 +6,7 @@
 /*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 16:13:20 by aschafer          #+#    #+#             */
-/*   Updated: 2016/02/27 10:43:20 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/03/09 15:25:19 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 #define RESET "\033[0m"
 #include "libft.h"
 
-static void	color_write(char *color, char *str)
+static void	color_write(const char *color, char *str)
 {
 	ft_putstr(color);
 	ft_putstr(str);
