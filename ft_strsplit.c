@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
+/*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 00:59:01 by aschafer          #+#    #+#             */
-/*   Updated: 2015/11/30 00:59:01 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/03/17 13:32:32 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**ft_strsplit(char const *s, char c)
 	i = 0;
 	len = 0;
 	wi = 0;
-	if (!as)
+	if (!as || !s || !*s)
 		return (NULL);
 	while (s[i])
 	{
