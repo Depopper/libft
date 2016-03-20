@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
+/*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/30 00:59:00 by aschafer          #+#    #+#             */
-/*   Updated: 2015/11/30 00:59:00 by aschafer         ###   ########.fr       */
+/*   Created: 2016/02/25 18:46:59 by aschafer          #+#    #+#             */
+/*   Updated: 2016/02/25 18:47:00 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	*ft_realloc(void *ptr, size_t size)
 {
-	if(*ap)
+	void	*new_ptr;
+
+	if (ptr && size > 0)
 	{
-		free(*ap);
-		*ap = NULL;
+		new_ptr = (void *)malloc(size);
+		ft_memcpy(new_ptr, ptr, ft_strlen(ptr));
+		return (new_ptr);
 	}
+	return (ptr);
 }

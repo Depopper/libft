@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_puttab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/30 00:59:00 by aschafer          #+#    #+#             */
-/*   Updated: 2015/11/30 00:59:00 by aschafer         ###   ########.fr       */
+/*   Created: 2016/03/03 00:59:01 by aschafer          #+#    #+#             */
+/*   Updated: 2016/03/03 00:59:01 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_puttab(char **tab)
 {
-	if(*ap)
+	int i;
+
+	i = 0;
+	if(!tab)
 	{
-		free(*ap);
-		*ap = NULL;
+		ft_putstr_color("Pointer not allocated or recently free'd", 3);
+		return ;
+	}
+	if (!tab[i])
+		ft_putstr_color("No entries found !", 3);
+	while (tab[i])
+	{
+		ft_putnbr(i);
+		ft_putstr(" : ");
+		ft_putendl(tab[i++]);
 	}
 }

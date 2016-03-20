@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_free_tb.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
+/*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/30 00:59:00 by aschafer          #+#    #+#             */
-/*   Updated: 2015/11/30 00:59:00 by aschafer         ###   ########.fr       */
+/*   Created: 2016/02/25 18:46:59 by aschafer          #+#    #+#             */
+/*   Updated: 2016/02/25 18:47:00 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_free_tb(char ***s)
 {
-	if(*ap)
+	int	i;
+
+	i = 0;
+	while ((*s)[i])
 	{
-		free(*ap);
-		*ap = NULL;
+		free((*s)[i]);
+		(*s)[i] = NULL;
+		i++;
 	}
+	free(*s);
+	*s = NULL;
 }

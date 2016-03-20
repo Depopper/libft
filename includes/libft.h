@@ -13,7 +13,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-
+# include <unistd.h>
+# include <stdlib.h>
 /*
 ****  IS
 */
@@ -35,6 +36,9 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			ft_memdel(void **ap);
 void			*ft_memset(void *dest, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
+void			ft_free_tb(char ***s);
+char			*ft_strjoin_free(char *s1, char *s2);
+void			*ft_realloc(void *ptr, size_t size);
 /*
 ****  STRINGS
 */
@@ -82,6 +86,7 @@ void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putstr_color(char *str, int color);
+void			ft_puttab(char **tab);
 /*
 ****  TO
 */
@@ -95,6 +100,7 @@ int				ft_getdecade(int nb);
 char			*ft_itoa(int n);
 unsigned long	ft_pow(int nb, int power);
 void			swap(void **one, void **two);
+int				get_next_line(int const fd, char **line);
 /*
 **** T_LIST
 */
