@@ -6,7 +6,7 @@
 /*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 00:59:11 by aschafer          #+#    #+#             */
-/*   Updated: 2016/03/20 17:56:20 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/03/20 18:04:03 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(const char *s);
-char			**ft_strsplitif(char const *s, BOOL (*f)(char c));
+char			**ft_strsplitif(char const *s, int (*f)(char c));
 /*
 ****  PUT
 */

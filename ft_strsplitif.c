@@ -6,7 +6,7 @@
 /*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/20 17:54:20 by aschafer          #+#    #+#             */
-/*   Updated: 2016/03/20 17:54:40 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/03/20 18:04:21 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int		count(char const *s1, BOOL (*f)(char c))
 	return (ret);
 }
 
-char			**ft_strsplitif(char const *s, BOOL (*f)(char c))
+char			**ft_strsplitif(char const *s, int (*f)(char c))
 {
 	int		i;
 	int		len;
