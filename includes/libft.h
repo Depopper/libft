@@ -86,7 +86,7 @@ void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putstr_color(char *str, int color);
-void			ft_puttab(char **tab);
+void			ft_puttab(char **tbl);
 /*
 ****  TO
 */

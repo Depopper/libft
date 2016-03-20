@@ -12,22 +12,22 @@
 
 #include "libft.h"
 
-void	ft_puttab(char **tab)
+void	ft_puttab(char **tbl)
 {
 	int i;
 
 	i = 0;
-	if(!tab)
+	if(!tbl)
 	{
 		ft_putstr_color("Pointer not allocated or recently free'd", 3);
 		return ;
 	}
-	if (!tab[i])
+	if (!tbl[i])
 		ft_putstr_color("No entries found !", 3);
-	while (tab[i])
+	while (tbl[i])
 	{
 		ft_putnbr(i);
 		ft_putstr(" : ");
-		ft_putendl(tab[i++]);
+		ft_putendl(tbl[i++]);
 	}
 }
