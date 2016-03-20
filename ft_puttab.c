@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puttab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
+/*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 00:59:01 by aschafer          #+#    #+#             */
-/*   Updated: 2016/03/03 00:59:01 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/03/20 17:57:38 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_puttab(char **tbl)
 	int i;
 
 	i = 0;
-	if(!tbl)
+	if (!tbl)
 	{
 		ft_putstr_color("Pointer not allocated or recently free'd", 3);
 		return ;
