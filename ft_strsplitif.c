@@ -6,13 +6,13 @@
 /*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/20 17:54:20 by aschafer          #+#    #+#             */
-/*   Updated: 2016/03/20 18:04:21 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/03/20 18:06:08 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		count(char const *s1, BOOL (*f)(char c))
+static int		count(char const *s1, int (*f)(char c))
 {
 	int i;
 	int ret;
