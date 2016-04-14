@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
+/*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 00:59:01 by aschafer          #+#    #+#             */
-/*   Updated: 2015/11/30 00:59:01 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/04/11 21:09:37 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char	*ft_strdup(const char *s1)
 	res = ft_memalloc(size + 1);
 	if (!res)
 		return (NULL);
-	return (ft_memcpy(res, (char *)s1, size + 1));
+	return (ft_memcpy(res, (char *)s1, size));
 }

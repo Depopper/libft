@@ -6,7 +6,7 @@
 /*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 00:59:11 by aschafer          #+#    #+#             */
-/*   Updated: 2016/03/20 18:04:03 by aschafer         ###   ########.fr       */
+/*   Updated: 2016/04/11 19:11:15 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void			ft_putendl(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putstr_color(char *str, int color);
 void			ft_puttab(char **tbl);
+void			ft_tab_insert(char **str, int index, char *buf);
 /*
 ****  TO
 */
