@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
+/*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/05 00:59:01 by aschafer          #+#    #+#             */
-/*   Updated: 2016/03/05 00:59:01 by aschafer         ###   ########.fr       */
+/*   Created: 2016/06/11 13:15:49 by aschafer          #+#    #+#             */
+/*   Updated: 2016/06/11 14:27:36 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 100
+# define BUFF_SIZE 32
 
-# include <sys/types.h>
-# include <stdlib.h>
-# include <sys/stat.h>
-# include <unistd.h>
-# include "libft.h"
-# include <sys/uio.h>
-
+typedef struct	s_fdslot
+{
+	int				fd;
+	char			*buffer;
+	char			*head;
+	struct s_fdslot *next;
+}				t_fdslot;
 int				get_next_line(int const fd, char **line);
-
 #endif

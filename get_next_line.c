@@ -3,97 +3,105 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aschafer <depopper0526@gmail.com>          +#+  +:+       +#+        */
+/*   By: aschafer <aschafer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/05 00:59:01 by aschafer          #+#    #+#             */
-/*   Updated: 2016/03/05 00:59:01 by aschafer         ###   ########.fr       */
+/*   Created: 2016/06/11 13:15:55 by aschafer          #+#    #+#             */
+/*   Updated: 2016/06/11 14:27:20 by aschafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "get_next_line.h"
+#include "libft.h"
 
-static int		check_stock(char **stock, char ***line, char *buffer)
+static t_fdslot		*new_slot_for_fd(int const fd)
 {
-	char *ptr;
+	t_fdslot	*slot;
 
-	if (*stock == NULL)
-		*stock = ft_strnew(1);
-	if (*stock)
-		if ((ptr = ft_strchr(*stock, '\n')))
+	if (!(slot = (t_fdslot *)malloc(sizeof(t_fdslot))))
+		return (NULL);
+	if (!(slot->buffer = ft_strnew(BUFF_SIZE)))
+	{
+		free(slot);
+		return (NULL);
+	}
+	slot->fd = fd;
+	slot->head = slot->buffer;
+	slot->next = NULL;
+	return (slot);
+}
+
+static t_fdslot		*get_slot_for_fd(int const fd)
+{
+	static t_fdslot *first;
+	t_fdslot		*current;
+
+	if (!first)
+		return ((first = new_slot_for_fd(fd)));
+	current = first;
+	while (current->next && fd != current->fd)
+		current = current->next;
+	if (fd == current->fd)
+		return (current);
+	return ((current->next = new_slot_for_fd(fd)));
+}
+
+static int			reset_slot(t_fdslot *slot)
+{
+	ft_strclr(slot->buffer);
+	slot->head = slot->buffer;
+	return (1);
+}
+
+static int			append_chunk(t_fdslot *slot, char **line)
+{
+	int		n;
+	char	*occur;
+	char	*temp;
+
+	if (!*(slot->head))
+		return (reset_slot(slot));
+	temp = *line;
+	if (!(occur = ft_strchr(slot->head, '\n')))
+	{
+		if (!(*line = ft_strjoin(*line, slot->head)))
+			return (-1);
+		free(temp);
+		return (reset_slot(slot));
+	}
+	if ((n = occur - slot->head))
+	{
+		if (!(*line = ft_strjoin(*line, ft_strsub(slot->head, 0, n))))
+			return (-1);
+		free(temp);
+	}
+	slot->head = occur + 1;
+	return (0);
+}
+
+int					get_next_line(int const fd, char **line)
+{
+	t_fdslot	*slot;
+	int			append_res;
+	int			read_res;
+
+	if (fd < 0 || fd == 1 || fd == 2
+		|| BUFF_SIZE < 1 || !line || !(slot = get_slot_for_fd(fd)))
+		return (-1);
+	if (!(*line = ft_strnew(0)))
+		return (-1);
+	while ((append_res = append_chunk(slot, line)))
+	{
+		if (append_res == -1)
+			return (-1);
+		if ((read_res = read(fd, slot->buffer, BUFF_SIZE)))
 		{
-			*ptr = '\0';
-			**line = ft_strjoin(*stock, buffer);
-			free(*stock);
-			*stock = ft_strdup(ptr + 1);
-			ft_bzero(buffer, BUFF_SIZE + 1);
-			free(buffer);
-			return (1);
+			if (read_res == -1)
+				return (-1);
 		}
-	return (0);
-}
-
-static int		check_tmp(char *tmp, char ***line, char **stock, char *buffer)
-{
-	if (tmp)
-	{
-		*tmp = '\0';
-		**line = ft_strjoin(*stock, buffer);
-		free(*stock);
-		*stock = ft_strdup(tmp + 1);
-		ft_bzero(buffer, BUFF_SIZE + 1);
-		free(buffer);
-		return (1);
+		else
+			return ((**line) ? 1 : 0);
 	}
-	return (-1);
-}
-
-static int		ft_return(int ret, char *stock, char ***line)
-{
-	if (ret < 0)
-		return (-1);
-	if (stock == NULL)
-		return (0);
-	**line = ft_strdup(stock);
-	free(stock);
-	return (0);
-}
-
-static int		ft_checkdown(char ***line, char **stock)
-{
-	if (*stock)
-	{
-		**line = ft_strdup(*stock);
-		ft_strdel(*&stock);
-		return (0);
-	}
-	else
-		return (-1);
-}
-
-int				get_next_line(int const fd, char **line)
-{
-	static char *stock[256];
-	char		*ptr;
-	char		*tmp;
-	char		*buffer;
-	int			ret;
-
-	buffer = ft_strnew(BUFF_SIZE + 1);
-	if ((check_stock(&stock[fd], &line, buffer)) == 1)
-		return (1);
-	while ((ret = read(fd, buffer, BUFF_SIZE)) > 0)
-	{
-		buffer[ret] = '\0';
-		tmp = ft_strchr(buffer, '\n');
-		if ((check_tmp(tmp, &line, &stock[fd], buffer)) == 1)
-			return (1);
-		ptr = stock[fd];
-		stock[fd] = ft_strjoin(stock[fd], buffer);
-		free(ptr);
-	}
-	if (ret < 0)
-		return (ft_return(ret, stock[fd], &line));
-	if ((ft_checkdown(&line, &stock[fd])) == 0)
-		return (0);
-	return (ft_return(ret, stock[fd], &line));
+	return (1);
 }
