@@ -37,7 +37,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			ft_memdel(void **ap);
 void			*ft_memset(void *dest, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
-void			ft_free_tb(char ***s);
+void			ft_free_tab(char ***s);
 char			*ft_strjoin_free(char *s1, char *s2);
 void			*ft_realloc(void *ptr, size_t size);
 /*

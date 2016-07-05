@@ -13,7 +13,7 @@ ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c \
 ft_toupper.c ft_getdecade.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 ft_lstadd.c ft_lstiter.c ft_lstpush.c ft_lstmap.c  ft_strlen_delim.c\
 ft_swap.c ft_puttab.c ft_strjoin_free.c ft_realloc.c get_next_line.c \
-ft_strsplitif.c ft_tab_insert.c \
+ft_strsplitif.c ft_tab_insert.c ft_free_tab.c \
 
 OBJ = $(subst .c,.o,$(SRC))
 
